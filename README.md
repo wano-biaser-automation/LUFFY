@@ -43,24 +43,24 @@ LUFFY/
 
 - This is a **development version** with incomplete implementations
 - Many functions contain TODO markers indicating pending work
-- API integrations (OpenAI, Gemini) are currently placeholder implementations
+- OpenAI API integration is implemented; Gemini integration remains a placeholder
 - FSDP and distributed training features need completion
 
 
 ### 🔴 High Priority TODOs
 
-- **API Integration**: OpenAI and Gemini API implementations need completion
+- **API Integration**: OpenAI API integration is complete; Gemini API implementation still needs completion
 - **Reward System**: Parallel processing and validation for reward computation  
 - **FSDP Training**: Model loading and distributed training setup
-- **Data Processing**: Batch dimension operations and tensor reshaping
+- **Data Processing**: Core batch dimension folding/unfolding are complete; optimization edge cases remain
 
 ### 📝 Complete TODO List
 
-- [ ] **luffy/deepscaler/utils.py:45** - Implement OpenAI API client initialization
-- [ ] **luffy/deepscaler/utils.py:46** - Add proper authentication handling
-- [ ] **luffy/deepscaler/utils.py:47** - Implement exponential backoff retry logic for rate limits
-- [ ] **luffy/deepscaler/utils.py:48** - Add comprehensive error handling for different API errors
-- [ ] **luffy/deepscaler/utils.py:49** - Implement response parsing and validation
+- [x] **luffy/deepscaler/utils.py:45** - Implement OpenAI API client initialization
+- [x] **luffy/deepscaler/utils.py:46** - Add proper authentication handling
+- [x] **luffy/deepscaler/utils.py:47** - Implement exponential backoff retry logic for rate limits
+- [x] **luffy/deepscaler/utils.py:48** - Add comprehensive error handling for different API errors
+- [x] **luffy/deepscaler/utils.py:49** - Implement response parsing and validation
 - [ ] **luffy/deepscaler/utils.py:50** - Add logging for API calls and errors
 - [ ] **luffy/deepscaler/utils.py:51** - Support batch processing for multiple prompts
 - [ ] **luffy/deepscaler/utils.py:52** - Add timeout configuration for API calls
@@ -110,15 +110,15 @@ LUFFY/
 - [ ] **luffy/verl/verl/models/llama/megatron/modeling_llama_megatron.py:588** - for better performance, the sp padding should be removed at each layer. Not sure the performance gap
 - [ ] **luffy/verl/verl/models/registry.py:21** - (sgm): HF may supported more than listed here, we should add more after testing
 - [ ] **luffy/verl/verl/models/transformers/llama.py:88** - These transpose are quite inefficient but Flash Attention requires the layout [batch_size, sequence_length, num_heads, head_dim]. We would need to refactor the KV cache
-- [ ] **luffy/verl/verl/protocol.py:114** - Implement batch dimension folding for efficient processing
-- [ ] **luffy/verl/verl/protocol.py:115** - Add validation for batch size compatibility
-- [ ] **luffy/verl/verl/protocol.py:116** - Handle edge cases where batch_size is not divisible by new_batch_size
+- [x] **luffy/verl/verl/protocol.py:114** - Implement batch dimension folding for efficient processing
+- [x] **luffy/verl/verl/protocol.py:115** - Add validation for batch size compatibility
+- [x] **luffy/verl/verl/protocol.py:116** - Handle edge cases where batch_size is not divisible by new_batch_size
 - [ ] **luffy/verl/verl/protocol.py:117** - Optimize memory usage during tensor reshaping
 - [ ] **luffy/verl/verl/protocol.py:118** - Add support for different tensor types and shapes
-- [ ] **luffy/verl/verl/protocol.py:131** - Implement batch dimension unfolding functionality
-- [ ] **luffy/verl/verl/protocol.py:132** - Add support for variable batch dimensions
+- [x] **luffy/verl/verl/protocol.py:131** - Implement batch dimension unfolding functionality
+- [x] **luffy/verl/verl/protocol.py:132** - Add support for variable batch dimensions
 - [ ] **luffy/verl/verl/protocol.py:133** - Optimize tensor view operations for performance
-- [ ] **luffy/verl/verl/protocol.py:134** - Handle non-tensor batch data reshaping properly
+- [x] **luffy/verl/verl/protocol.py:134** - Handle non-tensor batch data reshaping properly
 - [ ] **luffy/verl/verl/protocol.py:135** - Add error handling for invalid batch dimensions
 - [ ] **luffy/verl/verl/protocol.py:156** - (zhangchi.usc1992) add consistency check
 - [ ] **luffy/verl/verl/protocol.py:252** - we can actually lift this restriction if needed
